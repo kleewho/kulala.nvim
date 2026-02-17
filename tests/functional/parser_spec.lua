@@ -346,6 +346,7 @@ describe("requests", function()
             User-Agent: header with : colons and [
             Origin: https://httpbingo.org
             Empty-Header:
+            X-Custom: value?with?question?marks
           ]]):to_table(true),
           h.expand_path("requests/simple.http")
         )
@@ -358,6 +359,7 @@ describe("requests", function()
           ["User-Agent"] = "header with : colons and [",
           ["Origin"] = "https://httpbingo.org",
           ["Empty-Header"] = "",
+          ["X-Custom"] = "value?with?question?marks",
         })
       end)
 

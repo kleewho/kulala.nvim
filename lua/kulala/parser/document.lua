@@ -523,7 +523,7 @@ function parse_document(lines, path)
         parse_multiline_url(request, line)
       elseif not is_request_line and line:match("^%s*[?&]") and #request.headers == 0 and request.url then
         parse_query_params(request, line)
-      elseif line:match("^([^%[%s]+):%s*(.*)$") and not line:match("^[^:]+:[/%d]+.+") and not line:match("%?") then
+      elseif line:match("^([^%[%s]+):%s*(.*)$") and not line:match("^[^:]+:[/%d]+.+") and not line:match("^[^:]*%?") then
         -- skip [:] ipv6, ://, scheme, :80 port
         parse_headers(request, line)
         is_request_line = false
